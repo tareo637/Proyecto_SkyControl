@@ -10,12 +10,19 @@ public class Vuelo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "numero_vuelo") // Asegura que mapee bien con numero_vuelo en XAMPP
     private String numeroVuelo;
+
+    @Column(name = "aerolinea")
     private String aerolinea;
+
+    @Column(name = "destino")
     private String destino;
+
+    @Column(name = "estado")
     private String estado;
 
-    // Constructor vacío obligatorio para JPA
+    // Constructor vacío obligatorio
     public Vuelo() {}
 
     // Constructor con parámetros
@@ -27,45 +34,19 @@ public class Vuelo {
         this.estado = estado;
     }
 
-    // --- GETTERS Y SETTERS MANUALES (Para eliminar los errores del controlador) ---
+    // --- GETTERS Y SETTERS ---
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public Long getId() {
-        return id;
-    }
+    public String getNumeroVuelo() { return numeroVuelo; }
+    public void setNumeroVuelo(String numeroVuelo) { this.numeroVuelo = numeroVuelo; }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public String getAerolinea() { return aerolinea; }
+    public void setAerolinea(String aerolinea) { this.aerolinea = aerolinea; }
 
-    public String getNumeroVuelo() {
-        return numeroVuelo;
-    }
+    public String getDestino() { return destino; }
+    public void setDestino(String destino) { this.destino = destino; }
 
-    public void setNumeroVuelo(String numeroVuelo) {
-        this.numeroVuelo = numeroVuelo;
-    }
-
-    public String getAerolinea() {
-        return aerolinea;
-    }
-
-    public void setAerolinea(String aerolinea) {
-        this.aerolinea = aerolinea;
-    }
-
-    public String getDestino() {
-        return destino;
-    }
-
-    public void setDestino(String destino) {
-        this.destino = destino;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
+    public String getEstado() { return estado; }
+    public void setEstado(String estado) { this.estado = estado; }
 }
