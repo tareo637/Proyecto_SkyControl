@@ -391,33 +391,45 @@ const imagenesDestinos = {
             />
           </div>
 
-          {/* GRID DE DESTINOS LOCALES */}
-          <div>
-            <h3 style={{ margin: '0 0 12px 0', fontSize: '1.1rem', color: '#9ca3af', letterSpacing: '0.5px' }}>Destinos en Operación</h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '15px' }}>
-              {Object.keys(imagenesDestinos).map((nombre) => (
-                <div key={nombre} style={{
-                  background: 'rgba(13, 20, 43, 0.6)',
-                  borderRadius: '10px',
-                  overflow: 'hidden',
-                  border: '1px solid rgba(255,255,255,0.08)'
-                }}>
-                  <div style={{ width: '100%', height: '110px', overflow: 'hidden', background: '#101730' }}>
-                    <img 
-                      src={imagenesDestinos[nombre]} 
-                      alt={nombre} 
-                      onError={handleImageError}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
-                    />
-                  </div>
-                  <div style={{ padding: '10px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontWeight: 'bold', fontSize: '0.95rem' }}>{nombre}</span>
-                    <span style={{ color: '#10b981', fontSize: '0.75rem', background: 'rgba(16,185,129,0.1)', padding: '2px 8px', borderRadius: '10px' }}>Ruta Activa</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+         {/* GRID DE DESTINOS LOCALES */}
+<div>
+  <h3 style={{ margin: '0 0 12px 0', fontSize: '1.1rem', color: '#9ca3af', letterSpacing: '0.5px' }}>Destinos en Operación</h3>
+  <div style={{ 
+    display: 'grid', 
+    gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', 
+    gap: '15px',
+    width: '100%'
+  }}>
+    {Object.keys(imagenesDestinos).map((nombre) => (
+      <div key={nombre} style={{
+        background: 'rgba(13, 20, 43, 0.6)',
+        borderRadius: '10px',
+        overflow: 'hidden',
+        border: '1px solid rgba(255,255,255,0.08)',
+        display: 'flex',
+        flexDirection: 'column'
+      }}>
+        <div style={{ width: '100%', height: '140px', overflow: 'hidden', background: '#101730' }}>
+          <img 
+            src={imagenesDestinos[nombre]} 
+            alt={nombre} 
+            onError={handleImageError}
+            style={{ 
+              width: '100%', 
+              height: '100%', 
+              objectFit: 'cover',
+              display: 'block'
+            }} 
+          />
+        </div>
+        <div style={{ padding: '10px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(13, 20, 43, 0.9)' }}>
+          <span style={{ fontWeight: 'bold', fontSize: '0.95rem' }}>{nombre}</span>
+          <span style={{ color: '#10b981', fontSize: '0.75rem', background: 'rgba(16,185,129,0.1)', padding: '2px 8px', borderRadius: '10px' }}>Ruta Activa</span>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
 
           {/* MONITOR TABLA PREMIUM */}
           <div style={{
